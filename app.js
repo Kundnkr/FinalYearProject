@@ -6,9 +6,11 @@ const md5 = require("md5");
 let app = express();
 app.set('view engine','ejs');
 let productSchema = require('./productSchema');
+let orderSchema = require("./orderSchema")
 const userSchema = require('./USER-SCHEMA');
 const autoprefixer = require('autoprefixer');
 const USER = mongoose.model('User',userSchema);
+const ORDER = mongoose.model('Order',orderSchema)
 let product = mongoose.model('Product', productSchema);
 let currentPath = path.join(__dirname, 'views');
 app.use(express.urlencoded({ extended: false }));
@@ -68,8 +70,7 @@ app.post("/register", async(req,res)=> {
             res.redirect('/');
         }
         else {
-            console.log("The password doesn't match with confirm password.");
-            res.render("register");
+            res.send("<h1>The password doesn't match with confirm password.</h1>");
         }
     }
     catch(error) {
@@ -88,7 +89,7 @@ app.post('/login', async (req, res)=>{
     try {
         const foundUser = await USER.findOne({email: req.body.userEmail, password: md5(req.body.userPassword)});
         if(!foundUser) {
-            alert("User not found");
+            res.send("<h1>Please Check Your Email And Passowrd</h1>");
         }
         else {
             auth = true;
@@ -102,6 +103,47 @@ app.post('/login', async (req, res)=>{
         res.send(error.message);
     }
 })
+
+//create order
+
+app.get('/create-order/:id', async (req, res)=>{
+    
+    try {
+        let data = await product.findOne({_id:req.params.id});
+        const Orders = {
+            imglink: data.imglink,
+            productName:data.name,
+            price: data.price,
+        };
+        res.render("createOrder",{orderdetails:Orders, login:login, auth:auth});
+       
+    }
+    catch(error) {
+        console.log(error);
+        res.send(error);
+    }
+})
+
+app.post('/orderplaced',async(req,res)=>{
+    try {
+        let result = await ORDER(req.body);
+        let data = await result.save();
+        res.render('ordersuccess', {login:login, auth:auth})
+    }
+    catch{
+        
+    }   
+})
+app.get('/viewOrder', async(req,res)=>{
+    try{
+        let data = await ORDER.find();
+        res.render('orderlist', {login:login, auth:auth, datas:data});
+    }
+    catch{
+
+    }
+})
+
 app.listen('3000', ()=>{
     console.log("Server is running on " + "3000");
 });

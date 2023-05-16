@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .order-page{
+            display: flex;
+            width: 90%;
+            margin: auto;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 7%;
+            margin-bottom: 2%;
+        }
+        .order-page .img{
+            width: 50%;
+        }
+        .order-page .img img{
+            width: 300px;
+        }
+        .order-page form{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            margin: auto;
+        }
+        .order-page form input{
+            margin-bottom: 15px;
+            height: 35px;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid rgb(141, 137, 137);
+        }
+        .order-page form button{
+            cursor: pointer;
+            height: 35px;
+            border: none;
+            margin: 20px;
+            background-color: rgb(252, 72, 72);
+            color: white;
+            border-radius: 5px;
+            transition: 0.4s;
+        }
+        .order-page form button:hover{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <%- include('header.ejs') %>.
+    <div class="order-page">
+        <div class="img">
+            <img src="<%-orderdetails.imglink%>" alt="">
+        </div>
+        <form action="/orderplaced" method="post">
+            <h1>Fill Order Details</h1>
+            <label for="productName">Product Name</label>
+            <input type="text" name="productName" value="<%-orderdetails.productName%>" readonly>
+            <label for="price">Price</label>
+            <input type="text" name="price" value="<%-orderdetails.price%>" readonly>
+            <label for="address">Address</label>
+            <input type="text" name="address" id="">
+            <label for="pinCode">Pin Code</label>
+            <input type="number" name="pinCode">
+            <button>Submit Order</button>
+        </form>
+    </div>
+    <%- include('footer.ejs') %>.
+</body>
+</html>

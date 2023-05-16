@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <style>
+        .orderlist{
+            width: 90%;
+            margin: auto;
+            margin-top: 7%;
+            margin-bottom: 2%;
+        }
+        .orderlist .orderitem{
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            border: 1px solid rgb(155, 152, 152);
+            border-radius: 10px;
+            padding: 10px;
+            width:400px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('header.ejs') %>.
+    <div class="orderlist">
+        <% datas.forEach((element)=> { %>
+            <div class="orderitem">
+                <div class="img">
+                    <h3>Product Name: <%- element.productName %></h3>
+                    <p>Price : <%- element.price %></p>
+                    <p>Address : <%- element.address %></p>
+                    <p>Pincode : <%- element.pinCode %></p>
+                    <p>Order at: <%- element.createdAt %></p>
+
+                </div>
+            </div>
+            <% })%>
+    </div>
+    <%- include('footer.ejs') %>.
+</body>
+</html>

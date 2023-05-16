@@ -86,7 +86,7 @@
             color: rgb(0, 136, 136);
         }
 
-        .buybtn button {
+        .buybtn button{
             cursor: pointer;
             height: 35px;
             border: none;
@@ -95,6 +95,10 @@
             border-radius: 5px;
             color: white;
             transition: 0.5s;
+        }
+        .buybtn button a{
+            text-decoration: none;
+            color: white;
         }
 
         .buybtn button:hover {
@@ -146,7 +150,7 @@
                             </div>
                             <div class="buybtn">
                                 <h2>&#8377; <span><%- element.price %></span></h2>
-                                <button>Add To Cart</button>
+                                <button><a href="/create-order/<%- element.id %>">Buy Now</a></button>
                             </div>
                             <p>This sleek and compact device seamlessly combines power, convenience, and efficiency to
                                 enhance your overall experience. With its advanced electric system, it provides an
