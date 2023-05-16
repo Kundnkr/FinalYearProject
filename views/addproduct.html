@@ -7,13 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serifs;
+        }
         #addproduct{
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
             width: 60%;
             margin: auto;
             display: flex;
             justify-content: center;
             padding: 40px;
-            border: 1px solid rgb(145, 141, 141);
+            border: 1px solid rgb(233, 227, 227);
             border-radius: 25px;
             flex-direction: column;
         }
@@ -22,11 +27,39 @@
             height: 25px;
             margin-bottom: 10px;
         }
+        .back-btn{
+            cursor: pointer;
+            width: 130px;
+            height: 40px;
+            background-color: red;
+            text-decoration: none;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 5px;
+            transition: 0.5s;
+        }
+        .back-btn:hover{
+            background-color: rgb(150, 9, 9);
+        }
+        button{
+            width: 70%;
+            cursor: pointer;
+            height: 40px;
+            background-color: red;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 5px;
+            transition: 0.5s;
+            border: none;
+        }
+        button:hover{
+            background-color: rgb(150, 9, 9);
+        }
     </style>
 </head>
 
 <body>
-    <a href="/">Back to Home</a>
+    <a class="back-btn" href="/">Back to Home</a>
     <form id="addproduct" action="/add-product" method="post">
         <label for="imglink">Image Link</label>
         <input required type="text" name="imglink" placeholder="Image Link">
