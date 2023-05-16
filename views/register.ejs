@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .container{
+            width: 90%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 6%;
+        }
+        .container .img{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+
+        }
+        .container .data{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container .data form{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+        }
+        .container .data form input{
+            box-sizing: border-box;
+            width: 90%;
+            height: 35px;
+            /* border-radius:5px; */
+            padding: 5px;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid rgb(104, 103, 103);
+        }
+        .container .data form button{
+            height: 35px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(247, 51, 51);
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+        .container .data form button:hover{
+            background-color: rgb(126, 9, 9);
+        }
+        .container .data form .login-link{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 5px;
+        }
+        .container .data form .login-link a{
+            color: black;
+            transition: 0.4s;
+        }
+        .container .data form .login-link a:hover{
+            color: rgb(99, 98, 98);
+        }
+
+        @media(min-width: 481px) and (max-width: 1024px){
+            .container{
+                margin-top: 10%;
+                flex-direction: column;
+            }
+            .container .img{
+                /* border: 1px solid red; */
+                width: 80%;
+                margin: auto;
+            }
+            .container .data{
+                width: 80%;
+                /* border: 1px solid red; */
+            }
+            .container .data form{
+                width: 80%;
+                margin: auto;
+            }
+        }
+
+        @media(max-width: 481px){
+            .container{
+                margin-top: 15%;
+            }
+            .container .img{
+                display: none;
+            }
+            .container .data{
+
+                width: 80%;
+                margin: auto;
+            
+            }
+            .container .data h1{
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('header.ejs') %>.
+        <div class="container">
+            <div class="img">
+                <img src="./img/profilePic.gif" alt="">
+            </div>
+            <div class="data">
+                <h1>Create an Account</h1>
+                <form action="/register" method="post">
+                    <input type="text" name="newName" placeholder="Name"><br>
+                    <input type="email" name="newEmail" placeholder="E-mail"><br>
+                    <input type="password" name="newPassword" placeholder="Password"><br>
+                    <input type="password" name="newConfirmPassword" placeholder="Confirm Password"><br>
+                    <button type="submit">Register</button>
+                    <div class="login-link">
+                        <p>Already have an account ?</p>
+                        <a href="/login">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- element.name %></title>
+
+    <style>
+        #product-item {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            margin-top: 7%;
+            margin-bottom: 4%;
+            gap: 2rem;
+        }
+
+        #product-item .rating {
+            min-height: 20px;
+            width: 70%;
+            flex-wrap: nowrap;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        #product-item img {
+            padding: 40px;
+            width: 40%;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        #product-item .star {
+            color: white;
+        }
+
+        .buybtn {
+            display: flex;
+            width: 80%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #product-item .disc {
+            width: 50%;
+        }
+
+        #product-item .disc .rating p:nth-child(1) {
+            background-color: rgb(0, 141, 0);
+            padding: 5px 7px;
+            color: white;
+            border-radius: 8px;
+        }
+
+        #product-item .disc .rating p:nth-child(2) {
+            color: rgb(105, 105, 105);
+        }
+
+        #product-item .disc .brand .brandName {
+            background-color: rgb(0, 183, 255);
+            border-radius: 8px;
+            padding: 3px 8px;
+            color: white;
+            margin-right: 15px;
+        }
+
+        #product-item .disc .brand .trust {
+            color: rgb(68, 68, 68);
+        }
+
+        .tick {
+            color: rgb(40, 231, 40);
+            margin-right: 5px;
+        }
+
+        #product-item .disc .discription {
+            list-style: none;
+        }
+
+        .buybtn {
+            color: rgb(0, 136, 136);
+        }
+
+        .buybtn button {
+            cursor: pointer;
+            height: 35px;
+            border: none;
+            background-color: rgb(255, 7, 7);
+            padding: 0 10px;
+            border-radius: 5px;
+            color: white;
+            transition: 0.5s;
+        }
+
+        .buybtn button:hover {
+            background-color: rgb(131, 4, 4);
+        }
+
+        @media(max-width: 1070px) {
+            #product-item {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20%;
+            }
+
+            #product-item .disc {
+                width: 80%;
+            }
+        }
+
+        @media(max-width: 600px) {
+            #product-item .rating {
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('header.ejs') %>.
+        <div id="product-item">
+            <img src="<%- element.imglink %>" alt="">
+            <div class="disc">
+                <h2><%- element.name %></h1>
+                        <div class="rating">
+                            <p> 3.7 <span class="star">&#9733</span></p>
+                            <p>4,039 Ratings & 436 Reviews</p>
+                        </div>
+                        <h4 class="brand">Brand: <span class="brandName"><%- element.brand %></span> <span
+                                class="trust"> <span class="tick">&#10004</span>Trusted Seller</span></h1>
+                            <div class="discription">
+                                <li><span class="tick">&#10004</span> Built with alloy item</li>
+                                <li><span class="tick">&#10004</span> Constructed with high-quality alloy materials</li>
+                                <li><span class="tick">&#10004</span> This electric product offers exceptional durability</li>
+                                <li><span class="tick">&#10004</span> The alloy construction makes this product lightweight and easy to carry</li>
+                                <li><span class="tick">&#10004</span>We delivering efficient and reliable results consistently</li>
+                            </div>
+                            <div class="buybtn">
+                                <h2>&#8377; <span><%- element.price %></span></h2>
+                                <button>Add To Cart</button>
+                            </div>
+                            <p>This sleek and compact device seamlessly combines power, convenience, and efficiency to
+                                enhance your overall experience. With its advanced electric system, it provides an
+                                eco-friendly solution that reduces your carbon footprint while delivering exceptional
+                                results.</p>
+            </div>
+        </div>
+        <%- include('footer.ejs') %>.
+</body>
+
+</html>

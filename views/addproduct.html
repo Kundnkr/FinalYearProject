@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #addproduct{
+            width: 60%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            border: 1px solid rgb(145, 141, 141);
+            border-radius: 25px;
+            flex-direction: column;
+        }
+        #addproduct input,select{
+            width: 70%;
+            height: 25px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/">Back to Home</a>
+    <form id="addproduct" action="/add-product" method="post">
+        <label for="imglink">Image Link</label>
+        <input required type="text" name="imglink" placeholder="Image Link">
+        <label for="name">Product Name</label>
+        <input required name="name" type="text" placeholder="Product Name">
+        <label  for="brand">Brand</label>
+        <input required name="brand" type="text" placeholder="Brand Name">
+        <label for="cat" >Catogery</label>
+        <select required name="cat" id="">
+            <option value="">Select</option>
+            <option value="Electric Module and display">Electric Module and display</option>
+            <option value="Electronic Component">Electronic Component</option>
+            <option value="EBike Part">EBike Part</option>
+            <option value="Respberry pi">Respberry pi</option>
+            <option value="Sensor">Sensor</option>
+            <option value="IoT and Wireless">IoT and Wireless</option>
+            <option value="Wire and Cable">Wire and Cable</option>
+            <option value="Motor | Driver | Pumps">Motor | Driver | Pumps</option>
+            <option value="Batteries | Chargers">Batteries | Chargers</option>
+            <option value="Robots Kits">Robots Kits</option>
+        </select>
+        <label for="price">Price</label>
+        <input required name="price" type="number">
+        <button>Add Product</button>
+
+    </form>
+</body>
+
+</html>

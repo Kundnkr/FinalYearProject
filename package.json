@@ -1,0 +1,25 @@
+{
+  "name": "e-commercewebsite",
+  "version": "1.0.0",
+  "description": "A mobile responsive sample of E-Commerce Website using HTML, CSS, JavaScript and API's",
+  "main": "cart.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kundnkr/Ecommerce-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kundnkr/Ecommerce-Project/issues"
+  },
+  "homepage": "https://github.com/Kundnkr/Ecommerce-Project#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express.js": "^1.0.0",
+    "md5": "^2.3.0",
+    "mongoose": "^7.1.1"
+  }
+}
