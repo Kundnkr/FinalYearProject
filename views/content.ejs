@@ -11,6 +11,9 @@
 
     <link rel="stylesheet" href="css/content.css">
     <style>
+        *{
+            scroll-behavior: smooth;
+        }
         .product-container{
             display: flex;
             gap: 1rem;
@@ -82,7 +85,7 @@
         </div>
 
         <h1> Electronic Component</h1>
-        <div class="product-container">
+        <div id="electric-component" class="product-container">
             <% data.forEach((element)=> { %>
                 <% if(element.cat == "Electronic Component"){ %>
             <div id="box">
@@ -186,7 +189,7 @@
             <% }) %>
         </div>
         <h1> Motor | Driver | Pumps </h1>
-        <div class="product-container">
+        <div id="moter" class="product-container">
             <!-- JS rendered code -->
             <% data.forEach((element)=> { %>
                 <% if(element.cat == "Motor | Driver | Pumps"){ %>
