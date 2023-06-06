@@ -28,6 +28,10 @@ app.get('/', async(req,res)=>{
     res.render('index',{data:datas, login:login, auth:auth});
 });
 
+app.get('/admin',(req,res)=>{
+    res.render('admin')
+})
+
 app.get('/product',(req,res)=>{
     res.sendFile(currentPath + '/addproduct.html');
 });
@@ -115,12 +119,17 @@ app.get('/create-order/:id', async (req, res)=>{
             productName:data.name,
             price: data.price,
         };
-        res.render("createOrder",{orderdetails:Orders, login:login, auth:auth});
+        if(login == true && auth == true) {
+            res.render("createOrder",{orderdetails:Orders, login:login, auth:auth});
+        }
+        else{
+            res.redirect("/register");
+        }
        
     }
     catch(error) {
         console.log(error);
-        res.send(error);
+        res.send("item not found");
     }
 })
 
